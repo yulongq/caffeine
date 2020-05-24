@@ -60,7 +60,7 @@ subprojects {
   apply from: "${rootDir}/gradle/dependencies.gradle"
   apply from: "${rootDir}/gradle/objectLayout.gradle"
 
-  sourceCompatibility = JavaVersion.VERSION_1_8
+  sourceCompatibility = JavaVersion.VERSION_14
   archivesBaseName = path[1..-1].replaceAll(':', '-').toLowerCase()
 
   dependencies {

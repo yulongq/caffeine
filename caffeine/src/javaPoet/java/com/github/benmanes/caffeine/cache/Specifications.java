@@ -15,6 +15,8 @@
  */
 package com.github.benmanes.caffeine.cache;
 
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.VarHandle;
 import java.lang.ref.ReferenceQueue;
 
 import javax.lang.model.element.Modifier;
@@ -65,6 +67,8 @@ public final class Specifications {
 
   public static final TypeName UNSAFE_ACCESS =
       ClassName.get("com.github.benmanes.caffeine.base", "UnsafeAccess");
+  public static final TypeName METHOD_HANDLES = ClassName.get(MethodHandles.class);
+  public static final TypeName VAR_HANDLE = ClassName.get(VarHandle.class);
 
   public static final TypeName LOCAL_CACHE_FACTORY =
       ClassName.get(PACKAGE_NAME, "LocalCacheFactory");

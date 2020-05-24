@@ -44,13 +44,8 @@ task downloadCaffeineLocal() {
 
 javadoc.options.links(
   'https://lightbend.github.io/config/latest/api/',
-  "https://guava.dev/releases/${versions.guava}/api/docs/")
-def majorVersion = JavaVersion.current().majorVersion
-if (JavaVersion.current().isJava11Compatible()) {
-  javadoc.options.links("https://docs.oracle.com/en/java/javase/${majorVersion}/docs/api/")
-} else {
-  javadoc.options.links("https://docs.oracle.com/javase/${majorVersion}/docs/api/")
-}
+  "https://guava.dev/releases/${versions.guava}/api/docs/",
+  "https://docs.oracle.com/en/java/javase/${JavaVersion.current().majorVersion}/docs/api/")
 
 jar {
   manifest.attributes 'Bundle-License': 'https://www.apache.org/licenses/LICENSE-2.0'
@@ -136,10 +131,7 @@ tasks.withType(JavaCompile) {
 
     // Disabled due to incompatibility; fixed in
     // https://github.com/google/error-prone/issues/1106
-    if (JavaVersion.current().isJava12Compatible()) {
-      // Avoid explicitly enabling, as sometimes lost by JMH's compile task
-      enabled = false
-    }
+    enabled = false
   }
 }
 
