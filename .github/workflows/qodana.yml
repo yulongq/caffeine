@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-qodana-
       - name: Qodana - Code Inspection
         uses: JetBrains/qodana-action@v3.2.1
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: qodana-${{ env.JAVA_VERSION }}
           path: ${{ github.workspace }}/qodana
